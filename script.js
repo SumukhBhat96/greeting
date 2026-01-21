@@ -6,11 +6,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const bgMusic = document.getElementById("bgMusic");
   const langBtn = document.getElementById("langBtn");
   const timer = document.getElementById("timer");
+  const tick = document.getElementById("tickSound");
+
 
   /* ================= START JOURNEY ================= */
   startBtn.addEventListener("click", () => {
     bgMusic.volume = 0.8;
-    bgMusic.play().catch(() => {});
+    bgMusic.play().catch(() => { });
     loader.style.opacity = "0";
 
     setTimeout(() => {
@@ -89,21 +91,50 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /* ================= COUNTDOWN (LANGUAGE-AWARE) ================= */
+  /* ================= PER-DIGIT COUNTDOWN ================= */
+
   const weddingDate = new Date("2026-03-05T10:00:00").getTime();
+  let prevString = "";
+
+  function renderTimer(str) {
+    timer.innerHTML = "";
+
+    [...str].forEach((char, i) => {
+      const span = document.createElement("span");
+      span.className = "digit";
+      span.textContent = char;
+
+      if (prevString[i] !== char) {
+        span.classList.add("flip");
+      }
+
+      timer.appendChild(span);
+    });
+
+    prevString = str;
+  }
 
   setInterval(() => {
     const diff = weddingDate - Date.now();
 
-    const days = Math.floor(diff / 86400000);
-    const hrs  = Math.floor(diff / 3600000) % 24;
-    const mins = Math.floor(diff / 60000) % 60;
-    const secs = Math.floor(diff / 1000) % 60;
+    tick.currentTime = 0;
+    tick.volume = 0.15;
+    tick.play().catch(() => { });
 
-    const t = timeLabels[lang];
 
-    timer.textContent =
-      `${days} ${t.d} ${hrs} ${t.h} ${mins} ${t.m} ${secs} ${t.s}`;
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor(diff / 3600000) % 24;
+    const m = Math.floor(diff / 60000) % 60;
+    const s = Math.floor(diff / 1000) % 60;
+
+    let output =
+      lang === "en"
+        ? `${d}d ${h}h ${m}m ${s}s`
+        : `${d}일 ${h}시간 ${m}분 ${s}초`;
+
+    renderTimer(output);
   }, 1000);
+
 
   /* ================= FLOWER BACKGROUND ================= */
   const petals = document.getElementById("petals");
