@@ -1,4 +1,236 @@
 :root {
+  --bg:#0b0e23;
+  --rose:#ff7aa2;
+  --gold:#d4af37;
+  --text:#f3f3fa;
+}
+
+* { box-sizing:border-box; }
+
+body {
+  margin:0;
+  font-family:Poppins,sans-serif;
+  background:radial-gradient(circle at top,#1a1f4a,var(--bg));
+  color:var(--text);
+  overflow-x:hidden;
+}
+
+/* LOADER */
+#loader {
+  position:fixed;
+  inset:0;
+  background:radial-gradient(circle,#1a1f4a,#0b0e23);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:999;
+}
+
+.loader-box {
+  text-align:center;
+}
+
+.loader-box h1 {
+  font-family:Playfair Display,serif;
+  font-size:2.2rem;
+  background:linear-gradient(90deg,var(--rose),var(--gold));
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+.loader-box button {
+  margin-top:20px;
+  padding:12px 28px;
+  border:none;
+  border-radius:26px;
+  background:linear-gradient(135deg,var(--rose),var(--gold));
+  font-weight:600;
+  cursor:pointer;
+}
+
+/* APP */
+.hidden {
+  opacity:0;
+  pointer-events:none;
+}
+
+/* BACKGROUND */
+canvas {
+  position:fixed;
+  inset:0;
+  z-index:-3;
+  pointer-events:none;
+}
+
+.bg-veil {
+  position:fixed;
+  inset:0;
+  background:radial-gradient(circle,rgba(11,14,35,.55),rgba(11,14,35,.85));
+  z-index:-2;
+}
+
+/* LANGUAGE */
+.lang-btn {
+  position:fixed;
+  top:14px;
+  right:14px;
+  padding:10px 16px;
+  border:none;
+  border-radius:20px;
+  background:linear-gradient(135deg,var(--rose),var(--gold));
+  font-weight:600;
+  cursor:pointer;
+  z-index:9999;
+  pointer-events:auto;
+}
+
+/* HERO */
+.hero {
+  min-height:100vh;
+  padding:28px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  text-align:center;
+  gap:18px;
+}
+
+.eyebrow {
+  font-size:.75rem;
+  letter-spacing:.2em;
+  opacity:.6;
+}
+
+.hero h1 {
+  font-family:Playfair Display,serif;
+  font-size:clamp(2.4rem,8vw,4rem);
+  background:linear-gradient(90deg,var(--rose),var(--gold));
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+.hero-sub {
+  max-width:520px;
+  margin:0 auto;
+  opacity:.85;
+}
+
+/* SECTIONS */
+.countdown {
+  text-align:center;
+  padding:50px 20px;
+}
+
+.timer {
+  margin-top:14px;
+  font-size:1.4rem;
+  color:var(--gold);
+}
+
+.content {
+  max-width:720px;
+  margin:0 auto;
+  padding:36px 22px;
+  text-align:center;
+}
+
+.content.soft { opacity:.85; }
+
+.content h3 {
+  color:var(--gold);
+  margin-bottom:12px;
+}
+
+.content p {
+  line-height:1.8;
+}
+
+/* QUOTE */
+.quote {
+  padding:60px 20px;
+  text-align:center;
+  font-style:italic;
+  opacity:.7;
+}
+
+/* FOOTER */
+footer {
+  padding:40px 20px 60px;
+  text-align:center;
+  opacity:.6;
+}
+
+/* 🌸 FLOWERS */
+.petals {
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:-1;
+}
+
+.petal {
+  position:absolute;
+  top:-10%;
+  font-size:18px;
+  animation:fall linear infinite, sway ease-in-out infinite;
+}
+
+@keyframes fall {
+  to { transform:translateY(120vh) rotate(360deg); }
+}
+
+@keyframes sway {
+  0% { margin-left:0; }
+  50% { margin-left:30px; }
+  100% { margin-left:-20px; }
+}
+
+.petal.fast { animation-duration:8s,4s; }
+.petal.slow { animation-duration:16s,8s; }
+.petal.fade { opacity:.35; }
+.petal.glow { filter:drop-shadow(0 0 6px rgba(255,180,200,.6)); }
+
+/* 📚 TREASURE */
+.treasure-list {
+  padding:70px 22px;
+  text-align:center;
+}
+
+.treasure-list h3 {
+  color:var(--gold);
+  margin-bottom:36px;
+  font-size:1.6rem;
+}
+
+.book-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:22px;
+  max-width:1000px;
+  margin:0 auto;
+}
+
+.book-card {
+  background:rgba(255,255,255,0.04);
+  border-radius:18px;
+  padding:22px 18px;
+  transition:.3s;
+}
+
+.book-card:hover {
+  transform:translateY(-6px);
+}
+
+.book-card h4 {
+  color:var(--rose);
+  margin-bottom:6px;
+}
+
+.book-card p {
+  opacity:.8;
+  margin:0;
+}
+:root {
   --pink: #ff6f91;
   --rose: #ffd6e8;
   --gold: #c9a227;
@@ -117,3 +349,4 @@ footer {
     padding: 22px;
   }
 }
+
