@@ -155,6 +155,7 @@ footer p {
   color:var(--gold);
 }
 
+
 /* Glass panels for readability */
 .content,
 .content.soft,
@@ -273,3 +274,63 @@ footer {
   font-size:.9rem;
   opacity:.85;
 }
+
+/* ===== Auto-darken flowers behind content ===== */
+.hero,
+.content,
+.quote,
+.countdown,
+.treasure-list {
+  position: relative;
+  z-index: 1;
+}
+
+.hero::before,
+.content::before,
+.quote::before,
+.countdown::before,
+.treasure-list::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(11,14,35,0.45);
+  border-radius: inherit;
+  z-index: -1;
+}
+
+/* ===== Per-digit flip timer ===== */
+.timer {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  perspective: 600px;
+  font-weight: 600;
+}
+
+.digit {
+  display: inline-block;
+  min-width: 14px;
+  transform-origin: center bottom;
+}
+
+.digit.flip {
+  animation: flip 0.45s ease;
+}
+
+@keyframes flip {
+  0%   { transform: rotateX(90deg); opacity: 0; }
+  100% { transform: rotateX(0deg); opacity: 1; }
+}
+
+/* ===== Timer breathing glow ===== */
+.timer {
+  animation: breathe 4.5s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%   { text-shadow: 0 0 6px rgba(212,175,55,0.25); }
+  50%  { text-shadow: 0 0 16px rgba(212,175,55,0.55); }
+  100% { text-shadow: 0 0 6px rgba(212,175,55,0.25); }
+}
+
+
