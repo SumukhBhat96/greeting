@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8" />
   <title>Wedding Blessings</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&display=swap"
+    rel="stylesheet">
 
   <!-- GSAP -->
   <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
@@ -14,85 +17,124 @@
 
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<!-- 🌸 FLOWERS -->
-<div class="petals" id="petals"></div>
+  <!-- 🌸 FLOWERS -->
+  <div class="petals" id="petals"></div>
 
-<!-- LOADER -->
-<div id="loader">
-  <div class="loader-box">
-    <h1>Hello, soon-to-be bride 🌸</h1>
-    <p>Press this button to go on the music journey</p>
-    <button id="startBtn">Start the Journey</button>
-  </div>
-</div>
-
-<!-- MUSIC -->
-<audio id="bgMusic" loop preload="auto">
-  <source src="https://cdn.pixabay.com/audio/2023/04/10/audio_4b2f5a6f71.mp3" type="audio/mpeg">
-</audio>
-
-<!-- BACKGROUND -->
-<canvas id="fx"></canvas>
-<div class="bg-veil"></div>
-
-<!-- LANGUAGE -->
-<button id="langBtn" class="lang-btn">ENGLISH</button>
-
-<!-- MAIN -->
-<main id="app" class="hidden">
-
-  <section class="hero reveal">
-    <span class="eyebrow">Wedding Blessings</span>
-    <h1 data-key="title"></h1>
-    <p data-key="subtitle" class="hero-sub"></p>
-  </section>
-
-  <section class="countdown reveal">
-    <h2 data-key="countTitle"></h2>
-    <div id="timer" class="timer"></div>
-  </section>
-
-  <section class="content reveal">
-    <h3 data-key="messageTitle"></h3>
-    <p data-key="messageBody"></p>
-  </section>
-
-  <section class="content soft reveal">
-    <h3 data-key="promiseTitle"></h3>
-    <p data-key="promiseBody"></p>
-  </section>
-
-  <section class="quote reveal">
-    <p data-key="quote"></p>
-  </section>
-
-  <!-- 📚 TREASURE -->
-  <section class="treasure-list reveal">
-    <h3>The Contents in Your Treasure Box</h3>
-
-    <div class="book-grid">
-      <div class="book-card"><h4>Atomic Habits</h4><p>James Clear</p></div>
-      <div class="book-card"><h4>The Alchemist</h4><p>Paulo Coelho</p></div>
-      <div class="book-card"><h4>Rich Dad Poor Dad</h4><p>Robert Kiyosaki</p></div>
-      <div class="book-card"><h4>Think Like a Monk</h4><p>Jay Shetty</p></div>
-      <div class="book-card"><h4>The Psychology of Money</h4><p>Morgan Housel</p></div>
-      <div class="book-card"><h4>Ikigai</h4><p>Héctor García</p></div>
-      <div class="book-card"><h4>Deep Work</h4><p>Cal Newport</p></div>
-      <div class="book-card"><h4>Man’s Search for Meaning</h4><p>Viktor Frankl</p></div>
-      <div class="book-card"><h4>The Power of Now</h4><p>Eckhart Tolle</p></div>
-      <div class="book-card"><h4>The 5 Love Languages</h4><p>Gary Chapman</p></div>
-      <div class="book-card"><h4>Love & Respect</h4><p>Emerson Eggerichs</p></div>
+  <!-- LOADER -->
+  <div id="loader">
+    <div class="loader-box">
+      <h1>Hello, soon-to-be bride 🌸</h1>
+      <p>Press this button to go on the music journey</p>
+      <button id="startBtn">Start the Journey</button>
     </div>
-  </section>
+  </div>
 
-  <footer class="reveal">
-    <p data-key="footer"></p>
-  </footer>
+  <!-- MUSIC -->
+  <audio id="bgMusic" loop preload="auto">
+    <source src="https://cdn.pixabay.com/audio/2023/04/10/audio_4b2f5a6f71.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="tickSound" preload="auto">
+    <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_5bda2f8c4a.mp3" type="audio/mpeg">
+  </audio>
 
-</main>
 
-<script src="script.js"></script>
+  <!-- BACKGROUND -->
+  <canvas id="fx"></canvas>
+  <div class="bg-veil"></div>
+
+  <!-- LANGUAGE -->
+  <button id="langBtn" class="lang-btn">ENGLISH</button>
+
+  <!-- MAIN -->
+  <main id="app" class="hidden">
+
+    <section class="hero reveal">
+      <span class="eyebrow">Wedding Blessings</span>
+      <h1 data-key="title"></h1>
+      <p data-key="subtitle" class="hero-sub"></p>
+    </section>
+
+    <section class="countdown reveal">
+      <h2 data-key="countTitle"></h2>
+      <div id="timer" class="timer"></div>
+    </section>
+
+    <section class="content reveal">
+      <h3 data-key="messageTitle"></h3>
+      <p data-key="messageBody"></p>
+    </section>
+
+    <section class="content soft reveal">
+      <h3 data-key="promiseTitle"></h3>
+      <p data-key="promiseBody"></p>
+    </section>
+
+    <section class="quote reveal">
+      <p data-key="quote"></p>
+    </section>
+
+    <!-- 📚 TREASURE -->
+    <section class="treasure-list reveal">
+      <h3>The Contents in Your Treasure Box</h3>
+
+      <div class="book-grid">
+        <div class="book-card">
+          <h4>Atomic Habits</h4>
+          <p>James Clear</p>
+        </div>
+        <div class="book-card">
+          <h4>The Alchemist</h4>
+          <p>Paulo Coelho</p>
+        </div>
+        <div class="book-card">
+          <h4>Rich Dad Poor Dad</h4>
+          <p>Robert Kiyosaki</p>
+        </div>
+        <div class="book-card">
+          <h4>Think Like a Monk</h4>
+          <p>Jay Shetty</p>
+        </div>
+        <div class="book-card">
+          <h4>The Psychology of Money</h4>
+          <p>Morgan Housel</p>
+        </div>
+        <div class="book-card">
+          <h4>Ikigai</h4>
+          <p>Héctor García</p>
+        </div>
+        <div class="book-card">
+          <h4>Deep Work</h4>
+          <p>Cal Newport</p>
+        </div>
+        <div class="book-card">
+          <h4>Man’s Search for Meaning</h4>
+          <p>Viktor Frankl</p>
+        </div>
+        <div class="book-card">
+          <h4>The Power of Now</h4>
+          <p>Eckhart Tolle</p>
+        </div>
+        <div class="book-card">
+          <h4>The 5 Love Languages</h4>
+          <p>Gary Chapman</p>
+        </div>
+        <div class="book-card">
+          <h4>Love & Respect</h4>
+          <p>Emerson Eggerichs</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="reveal">
+      <p data-key="footer"></p>
+    </footer>
+
+  </main>
+
+  <script src="script.js"></script>
 </body>
+
 </html>
