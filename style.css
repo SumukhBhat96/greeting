@@ -337,5 +337,12 @@ yas{
    margin: 0 2px;
 }
 
+/* Hide language toggle inside loader */
+#loader .lang-btn {
+  display: none !important;
+}
+
+
+
 
 
