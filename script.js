@@ -27,25 +27,26 @@ document.addEventListener("DOMContentLoaded", () => {
   const text = {
     ko: {
       title: "다가오는 결혼을 진심으로 축하합니다",
-      subtitle: "사랑이 평생의 약속이 되는 순간을 축복합니다",
+      subtitle: "말이 아닌 마음으로 새겨진 서약.",
       countTitle: "결혼식까지 남은 시간",
-      messageTitle: "결혼을 앞둔 두 분께",
-      messageBody: "서로를 선택한 순간부터 가장 아름다운 이야기는 시작되었습니다.",
+      messageTitle: "곧 서약이 오가고, 약속은 영원으로 이어집니다.",
+      messageBody: "축제가 시작되기 전의 고요한 순간 속에서,그들의 마음은 함께 써 내려갈 삶을 향해 준비하고 있습니다.",
       promiseTitle: "사랑이라는 약속",
-      promiseBody: "결혼은 완벽함이 아니라 매일 사랑을 선택하는 것입니다.",
-      quote: "“결혼은 사랑의 끝이 아니라 사랑을 매일 선택하는 시작입니다.”",
-      footer: "2026년 3월 5일을 향한 두 분의 여정을 응원합니다"
+      promiseBody: "결혼은 일상의 순간들 속에 조용히 속삭여지는 약속입니다.사랑하고, 함께 성장하며, 언제나 곁에 머무르겠다는 약속.",
+      quote: "“사랑이란 서로를 바라보는 것이 아니라, 같은 방향을 함께 바라보는 것이다.” — 앙투안 드 생텍쥐페리",
+      footer: "영원으로 향한 카운트다운이 시작되었고, 기쁨은 매 순간마다 춤을 춥니다.2026년 3월 5일을 향해 걸어가는 이 길 위에서, 사랑이 늘 함께하고 웃음이 따라오며, 하루하루가 지날수록 행복이 더욱 깊어지기를 바랍니다."
     },
     en: {
       title: "Warm Congratulations on Your Upcoming Wedding",
-      subtitle: "Celebrating the moment love becomes a lifelong promise",
+      subtitle: "A vow written not in words, but in hearts.",
       countTitle: "Time Remaining Until the Wedding",
-      messageTitle: "To the Soon-to-Be Married Couple",
-      messageBody: "From the moment you chose each other, a beautiful story began.",
+      messageTitle: "Soon, vows will be spoken and promises sealed",
+      messageBody: "In the stillness before the celebration, their hearts prepare to step into a life written together.",
       promiseTitle: "A Promise Called Love",
-      promiseBody: "Marriage is not about perfection, but choosing love every day.",
-      quote: "“Marriage is not the end of love, but the beginning of choosing it daily.”",
-      footer: "Cheering for your beautiful journey toward March 5, 2026"
+      promiseBody: "Marriage is a quiet promise whispered in everyday moments: to love, to grow, and to remain—always.",
+      quote: "“Love does not consist of gazing at each other, but in looking outward together in the same direction.”  ——— Antoine de Saint-Exupéry",
+
+      footer: "The countdown to forever has begun, and joy dances in every moment. As you walk toward March 5, 2026, may love surround you, laughter follow you, and happiness grow deeper with each passing day."
     }
   };
 
