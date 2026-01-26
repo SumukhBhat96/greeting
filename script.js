@@ -10,16 +10,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* ================= START JOURNEY ================= */
+ 
   startBtn.addEventListener("click", () => {
-    bgMusic.volume = 0.8;
-    bgMusic.play().catch(() => { });
-    loader.style.opacity = "0";
+  bgMusic.volume = 0.8;
+  bgMusic.play().catch(() => {});
+  loader.style.opacity = "0";
 
-    setTimeout(() => {
-      loader.style.display = "none";
-      app.classList.remove("hidden");
-    }, 700);
-  });
+  setTimeout(() => {
+    loader.style.display = "none";
+
+    // 🔹 SHOW PAGE 2 (Story)
+    story.classList.remove("hidden");
+  }, 700);
+});
+
 
   /* ================= LANGUAGE DATA ================= */
   let lang = "ko";
@@ -167,4 +171,17 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+
+const toHome = document.getElementById("toHome");
+const story = document.getElementById("story");
+
+toHome.addEventListener("click", () => {
+  story.style.opacity = "0";
+
+  setTimeout(() => {
+    story.style.display = "none";
+    app.classList.remove("hidden");
+  }, 500);
+});
+
 
