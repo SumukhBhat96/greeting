@@ -180,17 +180,27 @@ toHome.addEventListener("click", () => {
   story.style.opacity = "0";
 
   setTimeout(() => {
+    // Hide Page 2
+    story.classList.add("hidden");
     story.style.display = "none";
+
+    // Show Page 3
     app.classList.remove("hidden");
 
-    // ✅ FORCE scroll to top AFTER page 3 is visible
+    // ✅ Reset scroll AFTER layout is visible
     requestAnimationFrame(() => {
       document.documentElement.scrollTop = 0;
       document.body.scrollTop = 0;
+
+      // ✅ FORCE GSAP to re-calc reveal animations
+      if (window.ScrollTrigger) {
+        ScrollTrigger.refresh(true);
+      }
     });
 
   }, 500);
 });
+
 
 
 // /* ===============================
@@ -210,6 +220,7 @@ toHome.addEventListener("click", () => {
 //     window.scrollTo({ top: 0, behavior: "smooth" });
 //   });
 // }
+
 
 
 
