@@ -185,22 +185,22 @@ toHome.addEventListener("click", () => {
 });
 
 
-/* ===============================
-   PAGE 2 → PAGE 3 TRANSITION
-   =============================== */
+// /* ===============================
+//    PAGE 2 → PAGE 3 TRANSITION
+//    =============================== */
 
-const toHomeBtn = document.getElementById("toHomeBtn");
-const storyPage = document.getElementById("story");
-const appPage = document.getElementById("app");
+// const toHomeBtn = document.getElementById("toHomeBtn");
+// const storyPage = document.getElementById("story");
+// const appPage = document.getElementById("app");
 
-if (toHomeBtn) {
-  toHomeBtn.addEventListener("click", () => {
-    storyPage.classList.add("hidden");
-    appPage.classList.remove("hidden");
+// if (toHomeBtn) {
+//   toHomeBtn.addEventListener("click", () => {
+//     storyPage.classList.add("hidden");
+//     appPage.classList.remove("hidden");
 
-    // smooth start position
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
-}
+//     // smooth start position
+//     window.scrollTo({ top: 0, behavior: "smooth" });
+//   });
+// }
 
 
