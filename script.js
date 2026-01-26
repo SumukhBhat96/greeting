@@ -174,6 +174,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const toHome = document.getElementById("toHome");
 const story = document.getElementById("story");
+const app = document.getElementById("app"); // make sure this exists
 
 toHome.addEventListener("click", () => {
   story.style.opacity = "0";
@@ -181,6 +182,13 @@ toHome.addEventListener("click", () => {
   setTimeout(() => {
     story.style.display = "none";
     app.classList.remove("hidden");
+
+    // ✅ FORCE scroll to top AFTER page 3 is visible
+    requestAnimationFrame(() => {
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    });
+
   }, 500);
 });
 
@@ -202,5 +210,6 @@ toHome.addEventListener("click", () => {
 //     window.scrollTo({ top: 0, behavior: "smooth" });
 //   });
 // }
+
 
 
