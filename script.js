@@ -11,16 +11,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* ================= START JOURNEY ================= */
  
-  startBtn.addEventListener("click", () => {
+ startBtn.addEventListener("click", () => {
   bgMusic.volume = 0.8;
   bgMusic.play().catch(() => {});
-  loader.style.opacity = "0";
+
+  loader.classList.add("page-hidden");
 
   setTimeout(() => {
     loader.style.display = "none";
 
-    // 🔹 SHOW PAGE 2 (Story)
+    // show page 2 smoothly
     story.classList.remove("hidden");
+    story.classList.add("page-transition", "page-visible");
+
+    // ensure correct start state
+    story.classList.remove("page-hidden");
   }, 700);
 });
 
@@ -203,6 +208,7 @@ toHome.addEventListener("click", () => {
 
 
 
+
 // /* ===============================
 //    PAGE 2 → PAGE 3 TRANSITION
 //    =============================== */
@@ -220,7 +226,5 @@ toHome.addEventListener("click", () => {
 //     window.scrollTo({ top: 0, behavior: "smooth" });
 //   });
 // }
-
-
 
 
