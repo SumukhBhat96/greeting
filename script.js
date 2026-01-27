@@ -149,7 +149,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const loader = document.getElementById("loader");
 
   Swal.fire({
-    title: "A Special Gift 🎁",
+    title: "Only the Chosen One May Enter 🌹",
     html: `
       <p class="swal-subtitle">Type the magic letters and continue.</p>
 
@@ -164,7 +164,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <button type="button" class="password-toggle" id="togglePassword">👁️</button>
       </div>
     `,
-    confirmButtonText: "Unlock",
+    confirmButtonText: "Unlock 🔐",
     allowOutsideClick: false,
     allowEscapeKey: false,
     customClass: {
@@ -190,18 +190,18 @@ document.addEventListener("DOMContentLoaded", () => {
       if (value !== PASSWORD) {
         popup.classList.add("glow-red");
         Swal.showValidationMessage(
-          "You are not the right person to access this gift"
+          "Wrong Password, Still Cute Though 🌹🪄 Try Again"
         );
         return false;
       }
 
       popup.classList.add("glow-green", "celebrate");
       Swal.update({
-        title: "Unlocked 💍",
-        html: `<p class="swal-subtitle">A beautiful gift awaits you…</p>`
+        title: "And So, It Opened ✨",
+        html: `<p class="swal-subtitle">One tiny password,one beautiful beginning.</p>`
       });
 
-      return new Promise((resolve) => setTimeout(resolve, 1400));
+      return new Promise((resolve) => setTimeout(resolve, 3400));
     }
   }).then((result) => {
     if (result.isConfirmed) {
