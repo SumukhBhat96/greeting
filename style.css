@@ -904,3 +904,16 @@ input::-webkit-textfield-decoration-container {
 .swal2-popup *::-webkit-scrollbar {
   display: none;
 }
+
+/* Ensure home page always occupies viewport */
+#app {
+  min-height: 100vh;
+  display: block;
+}
+
+/* Hero must be visible immediately */
+.hero,
+.home-hero {
+  opacity: 1;
+  transform: none;
+}
