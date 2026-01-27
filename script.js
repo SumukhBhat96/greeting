@@ -145,11 +145,11 @@
 // });
 
 document.addEventListener("DOMContentLoaded", () => {
-  const PASSWORD = "yash";
+  const PASSWORD = "yashaswini k";
   const loader = document.getElementById("loader");
 
   Swal.fire({
-    title: "Only the Chosen One May Enter 🌹",
+    title: "Only the Chosen One... May Enter 🌹",
     html: `
       <p class="swal-subtitle">Type the magic letters and continue.</p>
 
@@ -198,7 +198,7 @@ document.addEventListener("DOMContentLoaded", () => {
       popup.classList.add("glow-green", "celebrate");
       Swal.update({
         title: "And So, It Opened ✨",
-        html: `<p class="swal-subtitle">One tiny password,one beautiful beginning.</p>`
+        html: `<p class="swal-subtitle">One tiny password, One beautiful beginning.</p>`
       });
 
       return new Promise((resolve) => setTimeout(resolve, 3400));
@@ -402,28 +402,35 @@ const story = document.getElementById("story");
 const app = document.getElementById("app"); // make sure this exists
 
 toHome.addEventListener("click", () => {
+  // Fade out Page-2
   story.style.opacity = "0";
-
-
+  story.style.pointerEvents = "none";
 
   setTimeout(() => {
-    story.classList.add("hidden");
+    // Hide Page-2 completely
+    story.style.display = "none";
+
+    // Reset scroll BEFORE showing Page-3
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+
+    // Show Page-3
     app.classList.remove("hidden");
-    app.style.opacity = "0";
 
-    requestAnimationFrame(() => {
-      app.style.opacity = "1";
+    // Force hero visibility reset
+    const hero = document.querySelector(".hero, .home-hero, #hero");
+    if (hero) {
+      hero.style.opacity = "0";
+      hero.style.transform = "translateY(20px)";
 
-      document.documentElement.scrollTop = 0;
-      document.body.scrollTop = 0;
-
-      if (window.ScrollTrigger) {
-        ScrollTrigger.refresh(true);
-      }
-    });
+      requestAnimationFrame(() => {
+        hero.style.transition = "opacity 1s ease, transform 1s ease";
+        hero.style.opacity = "1";
+        hero.style.transform = "translateY(0)";
+      });
+    }
   }, 500);
-
 });
+
 
 
 
