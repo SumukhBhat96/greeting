@@ -190,7 +190,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (value !== PASSWORD) {
         popup.classList.add("glow-red");
         Swal.showValidationMessage(
-          "Wrong Password, Still Cute Though 🌹🪄 Try Again"
+          "Wrong Password, Still Cute Though🌹. Try Again !!"
         );
         return false;
       }
