@@ -526,3 +526,381 @@ footer {
   transform: scale(1);
   pointer-events: auto;
 }
+
+
+/* ===============================
+   PAGE 2 SCROLL GLOW
+   =============================== */
+
+.story-page::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 160, 200, 0.12),
+    transparent 60%
+  );
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+/* ===============================
+   PAGE CROSS FADE
+   =============================== */
+
+#story,
+#app {
+  transition: opacity 0.6s ease;
+}
+
+
+/* ===============================
+   PAGE PROGRESS INDICATOR
+   =============================== */
+
+.progress-indicator {
+  position: fixed;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 14px;
+  display: flex;
+  gap: 8px;
+  z-index: 9999;
+  opacity: 0.85;
+}
+
+.progress-indicator .step {
+  color: rgba(255,255,255,0.4);
+  font-weight: 600;
+}
+
+.progress-indicator .step.active {
+  color: var(--gold);
+}
+
+.progress-indicator .dot {
+  color: rgba(255,255,255,0.3);
+}
+
+
+/* Hide loader until password success */
+#loader {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ================================
+   WEDDING PASSWORD MODAL – DARK GREEN
+================================ */
+
+/* Backdrop blur */
+.swal2-container {
+  backdrop-filter: blur(6px);
+}
+
+/* ================================
+   BASE MODAL (DEFAULT / IDLE)
+================================ */
+.swal2-popup.wedding-alert {
+  border-radius: 26px !important;
+  padding: 28px 26px 30px !important;
+
+  background:
+    radial-gradient(
+      circle at top,
+      rgba(40, 140, 110, 0.22),
+      rgba(12, 20, 28, 0.96) 70%
+    ),
+    linear-gradient(180deg, #0e1c1a, #070d0c) !important;
+
+  color: #eafff5 !important;
+
+  box-shadow:
+    0 22px 65px rgba(40, 140, 110, 0.45),
+    inset 0 0 28px rgba(255, 255, 255, 0.035);
+
+  animation: modalGlowDarkGreen 5.5s ease-in-out infinite;
+  transition: box-shadow 0.5s ease, border 0.5s ease, transform 0.5s ease;
+}
+
+/* ================================
+   TITLE & TEXT
+================================ */
+.wedding-alert .swal2-title {
+  font-size: 1.55rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.4px;
+  color: #dffcf2 !important;
+}
+
+.wedding-alert .swal2-html-container {
+  color: rgba(220, 245, 235, 0.85) !important;
+  font-size: 0.95rem;
+  margin-bottom: 18px !important;
+}
+
+/* ================================
+   INPUT
+================================ */
+.wedding-alert input {
+  border-radius: 999px !important;
+  padding: 14px 18px !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(60, 180, 150, 0.45) !important;
+  color: #eafff5 !important;
+  font-size: 0.95rem;
+  transition: all 0.35s ease;
+}
+
+.wedding-alert input:focus {
+  outline: none !important;
+  border-color: rgba(100, 220, 190, 0.9) !important;
+  box-shadow: 0 0 18px rgba(100, 220, 190, 0.55);
+}
+
+/* ================================
+   BUTTON
+================================ */
+.wedding-alert .swal2-confirm {
+  border-radius: 999px !important;
+  padding: 12px 28px !important;
+  font-size: 0.95rem !important;
+  font-weight: 600;
+
+  background: linear-gradient(135deg, #2e9f7c, #48c9a3) !important;
+  color: #041713 !important;
+
+  border: none !important;
+  box-shadow: 0 10px 28px rgba(60, 180, 150, 0.45);
+  transition: all 0.35s ease;
+}
+
+.wedding-alert .swal2-confirm:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 14px 40px rgba(60, 180, 150, 0.65);
+}
+
+/* ================================
+   ERROR MESSAGE
+================================ */
+.wedding-alert .swal2-validation-message {
+  background: transparent !important;
+  color: #ff9a9a !important;
+  font-size: 0.85rem;
+  margin-top: 10px;
+}
+
+/* ================================
+   DARK GREEN BREATHING GLOW
+================================ */
+@keyframes modalGlowDarkGreen {
+  0% {
+    box-shadow:
+      0 22px 65px rgba(40, 140, 110, 0.45),
+      inset 0 0 28px rgba(255, 255, 255, 0.035);
+  }
+  50% {
+    box-shadow:
+      0 34px 100px rgba(60, 180, 150, 0.65),
+      inset 0 0 42px rgba(255, 255, 255, 0.055);
+  }
+  100% {
+    box-shadow:
+      0 22px 65px rgba(40, 140, 110, 0.45),
+      inset 0 0 28px rgba(255, 255, 255, 0.035);
+  }
+}
+
+/* ================================
+   ❌ ERROR STATE — RED
+================================ */
+.swal2-popup.wedding-alert.glow-red {
+  animation: none !important;
+
+  box-shadow:
+    0 0 30px rgba(255, 70, 70, 0.9),
+    0 0 70px rgba(255, 70, 70, 0.5) !important;
+
+  border: 2px solid rgba(255, 70, 70, 0.7) !important;
+}
+
+
+
+
+
+/* Space for eye inside input */
+.wedding-alert .swal2-input {
+  padding-right: 3.2rem !important;
+}
+
+/* Eye icon INSIDE input */
+.password-toggle {
+  position: absolute;
+  right: 0.9rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+
+  background: none;
+  border: none;
+  padding: 0;
+
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  color: rgba(220, 245, 235, 0.85);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.password-toggle:hover {
+  transform: translateY(-50%) scale(1.15);
+  color: rgba(220, 245, 235, 1);
+}
+
+/* Mobile-safe */
+@media (max-width: 480px) {
+  .password-toggle {
+    right: 0.75rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* 🔧 FIX: allow eye icon inside input */
+.wedding-alert .swal2-input-container {
+  position: relative !important;
+  overflow: visible !important;
+}
+
+/* Wrapper for input + eye */
+.password-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* Space for eye */
+.password-wrapper .swal2-input {
+  padding-right: 3.2rem !important;
+}
+
+/* Eye toggle INSIDE input */
+.password-toggle {
+  position: absolute;
+  right: 0.9rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  font-size: 1rem;
+  color: rgba(220, 255, 235, 0.9);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.password-toggle:hover {
+  transform: translateY(-50%) scale(1.15);
+  color: #e6fff6;
+}
+
+/* Mobile safe */
+@media (max-width: 480px) {
+  .password-toggle {
+    right: 0.75rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* Subtitle */
+.swal-subtitle {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.95rem;
+  margin-bottom: 16px;
+}
+
+/* Wrapper */
+.password-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* Input */
+.password-wrapper .swal2-input {
+  width: 100%;
+  padding-right: 3.2rem !important;
+}
+
+/* Eye toggle INSIDE input */
+.password-toggle {
+  position: absolute;
+  right: 0.9rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  color: rgba(220, 255, 235, 0.9);
+  z-index: 10;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.password-toggle:hover {
+  transform: translateY(-50%) scale(1.15);
+  color: #e6fff6;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .password-toggle {
+    right: 0.75rem;
+    font-size: 0.95rem;
+  }
+}
+/* ================================
+   FIX BROWSER PASSWORD ARTIFACTS
+================================ */
+
+/* Remove browser password reveal / autofill UI */
+input::-ms-reveal,
+input::-ms-clear {
+  display: none;
+}
+
+input::-webkit-credentials-auto-fill-button,
+input::-webkit-textfield-decoration-container {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* Prevent scrollbar / underline artifacts */
+.password-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden; /* 🔥 THIS REMOVES THE WHITE BAR */
+}
+
+/* Force SweetAlert input clean */
+.password-wrapper input {
+  margin: 0 !important;
+  box-sizing: border-box;
+}
+
+/* Kill any internal scrollbar */
+.swal2-popup * {
+  scrollbar-width: none;
+}
+
+.swal2-popup *::-webkit-scrollbar {
+  display: none;
+}
