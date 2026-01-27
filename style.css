@@ -671,8 +671,8 @@ footer {
   font-size: 0.95rem !important;
   font-weight: 600;
 
-  background: linear-gradient(135deg, #2e9f7c, #48c9a3) !important;
-  color: #041713 !important;
+  background: linear-gradient(135deg, #1e1f1e, #1d1f1e) !important;
+  color: #c8d2d0 !important;
 
   border: none !important;
   box-shadow: 0 10px 28px rgba(60, 180, 150, 0.45);
