@@ -1,3 +1,223 @@
+/* ======================================
+   PASSWORD GATE (BEFORE PAGE 1)
+====================================== */
+
+// document.addEventListener("DOMContentLoaded", () => {
+//   const PASSWORD = "yashaswini k";
+//   const loader = document.getElementById("loader");
+
+//   Swal.fire({
+//     title: "A Special Gift 🎁",
+//     text: "Type the magic letters and continue.",
+//     input: "password",
+//     inputPlaceholder: "Enter Magic Letters",
+//     inputAttributes: {
+//       autocapitalize: "off",
+//       autocorrect: "off"
+//     },
+//     confirmButtonText: "Unlock",
+//     showCancelButton: false,
+//     allowOutsideClick: false,
+//     allowEscapeKey: false,
+//     backdrop: `
+//       rgba(0,0,0,0.85)
+//       radial-gradient(circle at top, rgba(255,180,200,0.25), transparent 60%)
+//     `,
+//     customClass: {
+//       popup: "wedding-alert"
+//     },
+//     preConfirm: (value) => {
+//       if (value !== PASSWORD) {
+//         Swal.showValidationMessage(
+//           "You are not the right person to access this gift"
+//         );
+//         return false;
+//       }
+//       return true;
+//     }
+//   }).then((result) => {
+//     if (result.isConfirmed) {
+//       // Smoothly reveal Page 1 (Loader)
+//       loader.style.transition = "opacity 0.8s ease";
+//       loader.style.opacity = "1";
+//       loader.style.pointerEvents = "auto";
+//     }
+//   });
+// });
+
+
+// document.addEventListener("DOMContentLoaded", () => {
+//   const PASSWORD = "yash";
+//   const loader = document.getElementById("loader");
+
+//   Swal.fire({
+//     title: "A Special Gift 🎁",
+//     text: "Type the magic letters and continue.",
+//     input: "password",
+//     inputPlaceholder: "Enter Magic Letters",
+//     inputAttributes: {
+//       autocapitalize: "off",
+//       autocorrect: "off"
+//     },
+//     confirmButtonText: "Unlock",
+//     showCancelButton: false,
+//     allowOutsideClick: false,
+//     allowEscapeKey: false,
+//     backdrop: `
+//       rgba(0,0,0,0.85)
+//       radial-gradient(circle at top, rgba(255,180,200,0.25), transparent 60%)
+//     `,
+//     customClass: {
+//       popup: "wedding-alert"
+//     },
+
+//    didOpen: () => {
+//   const popup = Swal.getPopup();
+//   const input = popup.querySelector(".swal2-input");
+
+//   // Create wrapper
+//   const wrapper = document.createElement("div");
+//   wrapper.className = "password-wrapper";
+
+//   // Insert wrapper before input
+//   input.parentNode.insertBefore(wrapper, input);
+//   wrapper.appendChild(input);
+
+//   // Create toggle button
+//   const toggle = document.createElement("button");
+//   toggle.type = "button";
+//   toggle.className = "password-toggle";
+//   toggle.innerHTML = "👁️";
+
+//   wrapper.appendChild(toggle);
+
+//   toggle.addEventListener("click", () => {
+//     const isHidden = input.type === "password";
+//     input.type = isHidden ? "text" : "password";
+//     toggle.innerHTML = isHidden ? "🙈" : "👁️";
+//   });
+// },
+
+
+
+
+
+//     preConfirm: (value) => {
+//       const popup = Swal.getPopup();
+//       popup.classList.remove("glow-red", "glow-green", "celebrate");
+
+//       if (value !== PASSWORD) {
+//         popup.classList.add("glow-red");
+//         Swal.showValidationMessage(
+//           "You are not the right person to access this gift"
+//         );
+//         return false;
+//       }
+
+//       // ✅ SUCCESS — delay resolve so glow is visible
+//       popup.classList.add("glow-green", "celebrate");
+
+//       Swal.update({
+//         title: "Unlocked 💍",
+//         text: "A beautiful gift awaits you…"
+//       });
+
+//       return new Promise((resolve) => {
+//         setTimeout(() => resolve(true), 1400);
+//       });
+//     }
+
+//   }).then((result) => {
+//     if (result.isConfirmed) {
+
+//       const popup = Swal.getPopup();
+//       popup.style.transition = "opacity 1.2s ease, transform 1.2s ease";
+//       popup.style.opacity = "0";
+//       popup.style.transform = "scale(0.95)";
+
+//       setTimeout(() => {
+//         loader.style.transition = "opacity 1.5s ease";
+//         loader.style.opacity = "1";
+//         loader.style.pointerEvents = "auto";
+//       }, 1200);
+//     }
+//   });
+// });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const PASSWORD = "yash";
+  const loader = document.getElementById("loader");
+
+  Swal.fire({
+    title: "A Special Gift 🎁",
+    html: `
+      <p class="swal-subtitle">Type the magic letters and continue.</p>
+
+      <div class="password-wrapper">
+        <input
+          id="passwordInput"
+          type="password"
+          class="swal2-input"
+          placeholder="Enter Magic Letters"
+          autocomplete="off"
+        />
+        <button type="button" class="password-toggle" id="togglePassword">👁️</button>
+      </div>
+    `,
+    confirmButtonText: "Unlock",
+    allowOutsideClick: false,
+    allowEscapeKey: false,
+    customClass: {
+      popup: "wedding-alert"
+    },
+
+    didOpen: () => {
+      const input = document.getElementById("passwordInput");
+      const toggle = document.getElementById("togglePassword");
+
+      toggle.addEventListener("click", () => {
+        const hidden = input.type === "password";
+        input.type = hidden ? "text" : "password";
+        toggle.textContent = hidden ? "🙈" : "👁️";
+      });
+    },
+
+    preConfirm: () => {
+      const value = document.getElementById("passwordInput").value;
+      const popup = Swal.getPopup();
+      popup.classList.remove("glow-red", "glow-green", "celebrate");
+
+      if (value !== PASSWORD) {
+        popup.classList.add("glow-red");
+        Swal.showValidationMessage(
+          "You are not the right person to access this gift"
+        );
+        return false;
+      }
+
+      popup.classList.add("glow-green", "celebrate");
+      Swal.update({
+        title: "Unlocked 💍",
+        html: `<p class="swal-subtitle">A beautiful gift awaits you…</p>`
+      });
+
+      return new Promise((resolve) => setTimeout(resolve, 1400));
+    }
+  }).then((result) => {
+    if (result.isConfirmed) {
+      const popup = Swal.getPopup();
+      popup.style.opacity = "0";
+      popup.style.transform = "scale(0.95)";
+
+      setTimeout(() => {
+        loader.style.opacity = "1";
+        loader.style.pointerEvents = "auto";
+      }, 1200);
+    }
+  });
+});
+
+
 document.addEventListener("DOMContentLoaded", () => {
 
   const loader = document.getElementById("loader");
@@ -10,24 +230,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* ================= START JOURNEY ================= */
- 
- startBtn.addEventListener("click", () => {
-  bgMusic.volume = 0.8;
-  bgMusic.play().catch(() => {});
 
-  loader.classList.add("page-hidden");
+  startBtn.addEventListener("click", () => {
+    bgMusic.volume = 0.8;
+    bgMusic.play().catch(() => { });
 
-  setTimeout(() => {
-    loader.style.display = "none";
+    loader.classList.add("page-hidden");
 
-    // show page 2 smoothly
-    story.classList.remove("hidden");
-    story.classList.add("page-transition", "page-visible");
+    setTimeout(() => {
+      loader.style.display = "none";
 
-    // ensure correct start state
-    story.classList.remove("page-hidden");
-  }, 700);
-});
+      // show page 2 smoothly
+      story.classList.remove("hidden");
+      story.classList.add("page-transition", "page-visible");
+
+      // ensure correct start state
+      story.classList.remove("page-hidden");
+    }, 700);
+  });
 
 
   /* ================= LANGUAGE DATA ================= */
@@ -184,26 +404,25 @@ const app = document.getElementById("app"); // make sure this exists
 toHome.addEventListener("click", () => {
   story.style.opacity = "0";
 
+
+
   setTimeout(() => {
-    // Hide Page 2
     story.classList.add("hidden");
-    story.style.display = "none";
-
-    // Show Page 3
     app.classList.remove("hidden");
+    app.style.opacity = "0";
 
-    // ✅ Reset scroll AFTER layout is visible
     requestAnimationFrame(() => {
+      app.style.opacity = "1";
+
       document.documentElement.scrollTop = 0;
       document.body.scrollTop = 0;
 
-      // ✅ FORCE GSAP to re-calc reveal animations
       if (window.ScrollTrigger) {
         ScrollTrigger.refresh(true);
       }
     });
-
   }, 500);
+
 });
 
 
@@ -226,5 +445,48 @@ toHome.addEventListener("click", () => {
 //     window.scrollTo({ top: 0, behavior: "smooth" });
 //   });
 // }
+
+
+/* ===============================
+   PAGE 2 FLOWER PARALLAX
+   =============================== */
+
+window.addEventListener("scroll", () => {
+  if (story.classList.contains("hidden")) return;
+
+  const y = window.scrollY;
+
+  document.querySelectorAll(".petal").forEach((p, i) => {
+    const depth = (i % 5 + 1) * 0.08;
+    p.style.transform = `translateY(${y * depth}px)`;
+  });
+});
+
+window.addEventListener("scroll", () => {
+  if (story.classList.contains("hidden")) return;
+  story.style.setProperty("--scrollGlow", Math.min(1, window.scrollY / 300));
+  story.style.opacity = "1";
+});
+
+
+/* ===============================
+   PROGRESS TRACKING
+   =============================== */
+
+const steps = document.querySelectorAll(".progress-indicator .step");
+
+function setStep(n) {
+  steps.forEach((s, i) => s.classList.toggle("active", i === n));
+}
+
+// Page 1
+setStep(0);
+
+// Page 2
+startBtn.addEventListener("click", () => setStep(1));
+
+// Page 3
+toHome.addEventListener("click", () => setStep(2));
+
 
 
