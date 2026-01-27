@@ -145,7 +145,7 @@
 // });
 
 document.addEventListener("DOMContentLoaded", () => {
-  const PASSWORD = "yashaswini k";
+  const PASSWORD = "yash";
   const loader = document.getElementById("loader");
 
   Swal.fire({
@@ -386,37 +386,47 @@ document.addEventListener("DOMContentLoaded", () => {
   gsap.utils.toArray(".reveal").forEach(el => {
     gsap.from(el, {
       opacity: 0,
-      y: 60,
-      duration: 1.1,
+      y: 40,
+      duration: 0.9,
+      ease: "power2.out",
       scrollTrigger: {
         trigger: el,
-        start: "top 85%"
+        start: "top 95%",
+        once: true
       }
     });
   });
+
 
 });
 
 const toHome = document.getElementById("toHome");
 const story = document.getElementById("story");
 const app = document.getElementById("app"); // make sure this exists
-
 toHome.addEventListener("click", () => {
   // Fade out Page-2
   story.style.opacity = "0";
   story.style.pointerEvents = "none";
 
   setTimeout(() => {
-    // Hide Page-2 completely
+    // Hide Page-2
     story.style.display = "none";
 
     // Reset scroll BEFORE showing Page-3
-    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    window.scrollTo({ top: 0, left: 0 });
 
     // Show Page-3
     app.classList.remove("hidden");
 
-    // Force hero visibility reset
+    // 🔥 FORCE browser reflow
+    app.offsetHeight;
+
+    // 🔥 IMPORTANT: Refresh GSAP ScrollTrigger
+    if (window.ScrollTrigger) {
+      ScrollTrigger.refresh(true);
+    }
+
+    // Hero fade-in (keep your effect)
     const hero = document.querySelector(".hero, .home-hero, #hero");
     if (hero) {
       hero.style.opacity = "0";
@@ -428,8 +438,10 @@ toHome.addEventListener("click", () => {
         hero.style.transform = "translateY(0)";
       });
     }
+
   }, 500);
 });
+
 
 
 
